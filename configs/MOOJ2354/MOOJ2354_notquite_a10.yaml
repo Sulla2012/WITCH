@@ -1,5 +1,5 @@
 cluster:
-  name: "MOOJ2354"
+  name: "MOOJ234"
   Te: 5.0
   freq: 90e9
 paths:
@@ -11,11 +11,11 @@ paths:
   subdir: "MOOJ2354_A10"
 coords:
   z: 0.97 
-  r_map: "5.0*60 * da"
-  dr: "2.0 * da"
+  r_map: "3.0*60*da"
+  dr: ".5*da"
   x0: "Angle('23:54:42.6 hours').to(u.radian).value"
-  y0: "Angle('35:07:11.0 degrees').to(u.radian).value"
-  conv_factor: "da * (180 * 3600) / np.pi"
+  y0: "Angle('31:50:54.0 degrees').to(u.radian).value"
+  conv_factor: "(da * 180 * 3600) / np.pi"
 beam:
   fwhm1: "9.735 * da"
   amp1: 0.9808
@@ -35,16 +35,25 @@ minkasi:
   dograd: False
 models:
   a10:
-    func: "partial(helper, xyz=xyz, dx=float(y2K_RJ(freq, Te)*dr*XMpc/me), beam=beam, argnums=np.where(_to_fit)[0], n_a10=1)"
+    func: "partial(helper, xyz=xyz, dx=float(y2K_RJ(freq, Te)*dr*XMpc/me), beam=beam, argnums=np.where(_to_fit)[0], n_gnfw=1, n_powerlaw=0)"
     parameters:
       dx_1:
         value: 0.0 
-        to_fit: False
+        to_fit: True 
       dy_1:
         value: 0.0
-        to_fit: False 
+        to_fit: True 
       dz_1:
         value: 0.0 
+        to_fit: False
+      r_1:
+        value: 0.5 
+        to_fit: False
+      r_2:
+        value: 0.5
+        to_fit: False
+      r_3:
+        value: 0.5
         to_fit: False
       theta:
         value: 0.0
@@ -60,7 +69,7 @@ models:
         to_fit: True 
       gamma:
         value: .3081 
-        to_fit: False 
+        to_fit: True 
         #priors:
         #  type: "flat"
         #  value: "[0.0, 10.0]"
@@ -73,4 +82,3 @@ models:
       z:
         value: 0.97 
         to_fit: False
-      
