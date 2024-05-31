@@ -4,6 +4,7 @@ and adding generic structure common to multiple models.
 """
 
 from functools import partial
+from typing import Optional, Sequence
 
 import jax
 import jax.numpy as jnp
@@ -11,6 +12,11 @@ import numpy as np
 from astropy import constants as const
 from astropy import units as u
 from astropy.cosmology import Planck15 as cosmo
+from jax.typing import ArrayLike
+from minkasi.maps import SkyMap
+from numpy.typing import NDArray
+
+AnyArray = jax.Array | NDArray
 
 jax.config.update("jax_enable_x64", True)
 # jax.config.update("jax_platform_name", "gpu")
@@ -50,19 +56,25 @@ daline = jnp.array(daline.value)
 # Unit conversions
 # --------------------------------------------------------
 @partial(jax.jit, static_argnums=(0, 1))
-def y2K_CMB(freq, Te):
-    """
-    Convert from compton y to K_CMB.
+def y2K_CMB(freq: float, Te: float) -> float:
+    """Convert from compton y to K_CMB.
 
-    Arguments:
+    Parameters
+    ----------
+    freq :
+        The observing frequency in Hz
+    Te :
+        Electron temperature
+    freq: float :
 
-        freq: The observing frequency in Hz.
+    Te: float :
 
-        Te: Electron temperature
 
-    Returns:
-
+    Returns
+    -------
+    type
         y2K_CMB: Conversion factor from compton y to K_CMB.
+
     """
     x = freq * h / kb / Tcmb
     xt = x / jnp.tanh(0.5 * x)
@@ -104,102 +116,130 @@ def y2K_CMB(freq, Te):
 
 
 @partial(jax.jit, static_argnums=(0,))
-def K_CMB2K_RJ(freq):
-    """
-    Convert from K_CMB to K_RJ.
+def K_CMB2K_RJ(freq: float) -> float:
+    """Convert from K_CMB to K_RJ.
 
-    Arguments:
+    Parameters
+    ----------
+    freq :
+        The observing frequency in Hz
+    freq: float :
 
-        freq: The observing frequency in Hz.
 
-    Returns:
-
+    Returns
+    -------
+    type
         K_CMB2K_RJ: Conversion factor from K_CMB to K_RJ.
+
     """
     x = freq * h / kb / Tcmb
     return jnp.exp(x) * x * x / jnp.expm1(x) ** 2
 
 
 @partial(jax.jit, static_argnums=(0, 1))
-def y2K_RJ(freq, Te):
-    """
-    Convert from compton y to K_RJ.
+def y2K_RJ(freq: float, Te: float) -> float:
+    """Convert from compton y to K_RJ.
 
-    Arguments:
+    Parameters
+    ----------
+    freq :
+        The observing frequency in Hz
+    Te :
+        Electron temperature
+    freq: float :
 
-        freq: The observing frequency in Hz.
+    Te: float :
 
-        Te: Electron temperature
 
-    Returns:
-
+    Returns
+    -------
+    type
         y2K_RJ: Conversion factor from compton y to K_RJ.
+
     """
     factor = y2K_CMB(freq, Te)
     return factor * K_CMB2K_RJ(freq)
 
 
-def get_da(z):
-    """
-    Get factor to convert from arcseconds to MPc.
+def get_da(z: float) -> float:
+    """Get factor to convert from arcseconds to MPc.
 
-    Arguments:
+    Parameters
+    ----------
+    z :
+        The redshift at which to compute the factor
+    z: float :
 
-        z: The redshift at which to compute the factor.
 
-    Returns:
-
+    Returns
+    -------
+    type
         da: Conversion factor from arcseconds to MPc
+
     """
-    return jnp.interp(z, dzline, daline)
+    return jnp.interp(z, dzline, daline).item()
 
 
-def get_nz(z):
-    """
-    Get n(z).
+def get_nz(z: float) -> float:
+    """Get n(z).
 
-    Arguments:
+    Parameters
+    ----------
+    z :
+        The redshift at which to compute the factor
+    z: float :
 
-        z: The redshift at which to compute the factor.
 
-    Returns:
-
+    Returns
+    -------
+    type
         nz: n at the given z.
+
     """
-    return jnp.interp(z, dzline, nzline)
+    return jnp.interp(z, dzline, nzline).item()
 
 
-def get_hz(z):
-    """
-    Get h(z).
+def get_hz(z: float) -> float:
+    """Get h(z).
 
-    Arguments:
+    Parameters
+    ----------
+    z :
+        The redshift at which to compute the factor
+    z: float :
 
-        z: The redshift at which to compute the factor.
 
-    Returns:
-
+    Returns
+    -------
+    type
         hz: h at the given z.
+
     """
-    return jnp.interp(z, dzline, hzline)
+    return jnp.interp(z, dzline, hzline).item()
 
 
 # FFT Operations
 # -----------------------------------------------------------
 @jax.jit
-def fft_conv(image, kernel):
-    """
-    Perform a convolution using FFTs for speed.
+def fft_conv(image: ArrayLike, kernel: ArrayLike) -> jax.Array:
+    """Perform a convolution using FFTs for speed.
 
-    Arguments:
+    Parameters
+    ----------
+    image :
+        Data to be convolved
+    kernel :
+        Convolution kernel
+    image: ArrayLike :
 
-        image: Data to be convolved
+    kernel: ArrayLike :
 
-        kernel: Convolution kernel
 
-    Returns:
-
+    Returns
+    -------
+    type
         convolved_map: Image convolved with kernel.
+
     """
     Fmap = jnp.fft.fft2(jnp.fft.fftshift(image))
     Fkernel = jnp.fft.fft2(jnp.fft.fftshift(kernel))
@@ -209,20 +249,25 @@ def fft_conv(image, kernel):
 
 
 @partial(jax.jit, static_argnums=(1,))
-def tod_hi_pass(tod, N_filt):
-    """
-    High pass a tod with a tophat
+def tod_hi_pass(tod: ArrayLike, N_filt: int) -> jax.Array:
+    """High pass a tod with a tophat
 
-    Arguments:
+    Parameters
+    ----------
+    tod :
+        TOD to high pass
+    N_filt :
+        N_filt of tophat
+    tod: ArrayLike :
 
-        tod: TOD to high pass
-
-        N_filt: N_filt of tophat
+    N_filt: int :
 
 
-    Returns:
-
+    Returns
+    -------
+    type
         tod_filtered: Filtered TOD
+
     """
     mask = jnp.ones(tod.shape)
     mask = jax.ops.index_update(mask, jax.ops.index[..., :N_filt], 0.0)
@@ -236,30 +281,44 @@ def tod_hi_pass(tod, N_filt):
 
 # Model building tools
 # -----------------------------------------------------------
-def make_grid(r_map, dx, dy=None, dz=None):
-    """
-    Make coordinate grids to build models in.
+def make_grid(
+    r_map: float, dx: float, dy: Optional[float] = None, dz: Optional[float] = None
+) -> list[jax.Array]:
+    """Make coordinate grids to build models in.
     All grids are sparse and are int(2*r_map / dr) in each dimension.
 
-    Arguments:
+    Parameters
+    ----------
+    r_map :
+        Size of grid radially
+    dx :
+        Grid resolution in x
+    dy :
+        Grid resolution in y
+    If :
+        None then dy is set to dx
+    dz :
+        Grid resolution in z
+    If :
+        None then dz is set to dx
+    r_map: float :
 
-        r_map: Size of grid radially.
+    dx: float :
 
-        dx: Grid resolution in x, should be in same units as r_map.
+    dy: Optional[float] :
+         (Default value = None)
+    dz: Optional[float] :
+         (Default value = None)
 
-        dy: Grid resolution in y, should be in same units as r_map.
-            If None then dy is set to dx.
-
-        dz: Grid resolution in z, should be in same units as r_map.
-            If None then dz is set to dx.
-
-    Returns:
-
+    Returns
+    -------
+    type
         x: Grid of x coordinates in same units as r_map.
 
         y: Grid of y coordinates in same units as r_map
 
         z: Grid of z coordinates in same units as r_map
+
     """
     if dy is None:
         dy = dx
@@ -274,28 +333,48 @@ def make_grid(r_map, dx, dy=None, dz=None):
     return jnp.meshgrid(x, y, z, sparse=True, indexing="ij")
 
 
-def make_grid_from_skymap(skymap, z_map, dz, x0=None, y0=None):
-    """
-    Make coordinate grids to build models in.
+def make_grid_from_skymap(
+    skymap: SkyMap,
+    z_map: float,
+    dz: float,
+    x0: Optional[float] = None,
+    y0: Optional[float] = None,
+):
+    """Make coordinate grids to build models in that matches a map's footprint.
     All grids are sparse and are int(2*r_map / dr) in each dimension.
 
-    Arguments:
+    Parameters
+    ----------
+    skymap :
+        The map to match the grid to
+    z_map :
+        Size of grid along LOS
+    dz :
+        Grid resolution along LOS
+    x0 :
+        Map x center in radians
+    y0 :
+        Map y center in radians
+    skymap: SkyMap :
 
-        z_map: Size of grid along LOS, in radians.
+    z_map: float :
 
-        dz: Grid resolution along LOS, in radians.
+    dz: float :
 
-        x0: Map x center in radians. If None, grid center is used.
+    x0: Optional[float] :
+         (Default value = None)
+    y0: Optional[float] :
+         (Default value = None)
 
-        y0: Map y center in radians. If None, grid center is used.
-
-    Returns:
-
+    Returns
+    -------
+    type
         x: Grid of x coordinates in radians.
 
         y: Grid of y coordinates in radians.
 
         z: Grid of z coordinates in radians.
+
     """
     # make grid
     _x = jnp.arange(skymap.nx, dtype=float)
@@ -342,31 +421,58 @@ def make_grid_from_skymap(skymap, z_map, dz, x0=None, y0=None):
 
 
 @jax.jit
-def transform_grid(dx, dy, dz, r_1, r_2, r_3, theta, xyz):
-    """
-    Shift, rotate, and apply ellipticity to coordinate grid.
+def transform_grid(
+    dx: float,
+    dy: float,
+    dz: float,
+    r_1: float,
+    r_2: float,
+    r_3: float,
+    theta: float,
+    xyz: Sequence[ArrayLike],
+) -> tuple[jax.Array, jax.Array, jax.Array]:
+    """Shift, rotate, and apply ellipticity to coordinate grid.
 
-    Arguments:
+    Parameters
+    ----------
+    dx :
+        RA of cluster center relative to grid origin
+    dy :
+        Dec of cluster center relative to grid origin
+    dz :
+        Line of sight offset of cluster center relative to grid origin
+    r_1 :
+        Amount to scale along x
+    r_2 :
+        Amount to scale along y
+    r_3 :
+        Amount to scale along z
+    theta :
+        Angle to rotate in xy
+    xyz :
+        Coordinte grid to transform
+    dx: float :
 
-        dx: RA of cluster center relative to grid origin
+    dy: float :
 
-        dy: Dec of cluster center relative to grid origin
+    dz: float :
 
-        dz: Line of sight offset of cluster center relative to grid origin
+    r_1: float :
 
-        r_1: Amount to scale along x-axis
+    r_2: float :
 
-        r_2: Amount to scale along y-axis
+    r_3: float :
 
-        r_3: Amount to scale along z-axis
+    theta: float :
 
-        theta: Angle to rotate in xy-plane
+    xyz: Sequence[ArrayLike] :
 
-        xyz: Coordinte grid to transform
 
-    Returns:
-
+    Returns
+    -------
+    type
         xyz: Transformed coordinate grid
+
     """
     # Shift origin
     x = xyz[0] - dx
@@ -382,33 +488,56 @@ def transform_grid(dx, dy, dz, r_1, r_2, r_3, theta, xyz):
     y = yy / r_2
     z = z / r_3
 
-    return x, y, z
+    return jnp.array(x), jnp.array(y), jnp.array(z)
 
 
-def tod_to_index(xi, yi, x0, y0, grid, conv_factor):
-    """
-    Convert RA/Dec TODs to index space.
+@jax.jit
+def tod_to_index(
+    xi: AnyArray,
+    yi: AnyArray,
+    x0: float,
+    y0: float,
+    grid: Sequence[AnyArray],
+    conv_factor: float,
+) -> tuple[jax.Array, jax.Array]:
+    """Convert RA/Dec TODs to index space.
 
-    Arguments:
+    Parameters
+    ----------
+    xi :
+        RA TOD
+    yi :
+        Dec TOD
+    x0 :
+        RA at center of model
+    y0 :
+        Dec at center of model
+    grid :
+        The grid to index on
+    conv_factor :
+        Conversion factor to put RA and Dec in same units as r_map
+    Nominally :
+        da
+    xi: AnyArray :
 
-        xi: RA TOD
+    yi: AnyArray :
 
-        yi: Dec TOD
+    x0: float :
 
-        x0: RA at center of model. Nominally the cluster center.
+    y0: float :
 
-        y0: Dec at center of model. Nominally the cluster center.
+    grid: Sequence[AnyArray] :
 
-        grid: The grid to index on.
+    conv_factor: float :
 
-        conv_factor: Conversion factor to put RA and Dec in same units as r_map.
-                     Nominally (da * 180 * 3600) / pi
 
-    Returns:
-
+    Returns
+    -------
+    type
         idx: The RA TOD in index space
 
         idy: The Dec TOD in index space.
+
     """
     dx = (xi - x0) * jnp.cos(yi)
     dy = yi - y0
@@ -417,11 +546,11 @@ def tod_to_index(xi, yi, x0, y0, grid, conv_factor):
     dy *= conv_factor
 
     # Assuming sparse indexing here
-    idx = np.digitize(dx, grid[0].ravel())
-    idy = np.digitize(dy, grid[1].ravel())
+    idx = jnp.digitize(dx, grid[0].ravel())
+    idy = jnp.digitize(dy, grid[1].ravel())
 
-    idx = np.rint(idx).astype(int)
-    idy = np.rint(idy).astype(int)
+    idx = jnp.rint(idx).astype(int)
+    idy = jnp.rint(idy).astype(int)
 
     # Ensure out of bounds for stuff not in grid
     idx = jnp.where((idx < 0) + (idx >= grid[0].shape[0]), 2 * grid[0].shape[0], idx)
@@ -431,31 +560,48 @@ def tod_to_index(xi, yi, x0, y0, grid, conv_factor):
 
 
 @jax.jit
-def bilinear_interp(x, y, xp, yp, fp):
-    """
-    JAX implementation of bilinear interpolation.
+def bilinear_interp(
+    x: AnyArray, y: AnyArray, xp: AnyArray, yp: AnyArray, fp: AnyArray
+) -> jax.Array:
+    """JAX implementation of bilinear interpolation.
     Out of bounds values are set to 0.
     Using the repeated linear interpolation method here,
     see https://en.wikipedia.org/wiki/Bilinear_interpolation#Repeated_linear_interpolation.
 
-    Arguments:
+    Parameters
+    ----------
+    x :
+        X values to return interpolated values at
+    y :
+        Y values to return interpolated values at
+    xp :
+        X values to interpolate with
+    Assumed :
+        to be sorted
+    yp :
+        Y values to interpolate with
+    Assumed :
+        to be sorted
+    fp :
+        Functon values at
+    Note :
+        that if you are using meshgrid
+    x: AnyArray :
 
-        x: X values to return interpolated values at.
+    y: AnyArray :
 
-        y: Y values to return interpolated values at.
+    xp: AnyArray :
 
-        xp: X values to interpolate with, should be 1D.
-            Assumed to be sorted.
+    yp: AnyArray :
 
-        yp: Y values to interpolate with, should be 1D.
-            Assumed to be sorted.
+    fp: AnyArray :
 
-        fp: Functon values at (xp, yp), should have shape (len(xp), len(yp)).
-            Note that if you are using meshgrid, we assume 'ij' indexing.
 
-    Return:
-
+    Returns
+    -------
+    type
         f: The interpolated values
+
     """
     if len(xp.shape) != 1:
         raise ValueError("xp must be 1D")
@@ -497,25 +643,43 @@ def bilinear_interp(x, y, xp, yp, fp):
     return f
 
 
-def beam_double_gauss(dr, fwhm1=9.735, amp1=0.9808, fwhm2=32.627, amp2=0.0192):
-    """
-    Helper function to generate a double gaussian beam.
+def beam_double_gauss(
+    dr: float,
+    fwhm1: float = 9.735,
+    amp1: float = 0.9808,
+    fwhm2: float = 32.627,
+    amp2: float = 0.0192,
+):
+    """Helper function to generate a double gaussian beam.
 
-    Arguments:
+    Parameters
+    ----------
+    dr :
+        Pixel size
+    fwhm1 :
+        Full width half max of the primary gaussian
+    amp1 :
+        Amplitude of the primary gaussian
+    fwhm2 :
+        Full width half max of the secondairy gaussian
+    amp2 :
+        Amplitude of the secondairy gaussian
+    dr: float :
 
-        dr: Pixel size.
+    fwhm1: float :
+         (Default value = 9.735)
+    amp1: float :
+         (Default value = 0.9808)
+    fwhm2: float :
+         (Default value = 32.627)
+    amp2: float :
+         (Default value = 0.0192)
 
-        fwhm1: Full width half max of the primary gaussian.
-
-        amp1: Amplitude of the primary gaussian.
-
-        fwhm2: Full width half max of the secondairy gaussian.
-
-        amp2: Amplitude of the secondairy gaussian.
-
-    Returns:
-
+    Returns
+    -------
+    type
         beam: Double gaussian beam.
+
     """
     x = jnp.arange(-1.5 * fwhm1 // (dr), 1.5 * fwhm1 // (dr)) * (dr)
     beam_xx, beam_yy = jnp.meshgrid(x, x)
