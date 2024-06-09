@@ -1,0 +1,847 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mustang-sz.github.io/WITCH/3.2.1/">
+      
+      
+      
+        <link rel="next" href="reference/bowling/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>WITCH</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#witch-where-is-that-cluster-hiding" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="WITCH" class="md-header__button md-logo" aria-label="WITCH" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WITCH
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="WITCH" class="md-nav__button md-logo" aria-label="WITCH" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    WITCH
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-witch-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      The WITCH Library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-fitterpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      The fitter.py Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#style-and-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Style and Standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Style and Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/bowling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bowling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    core
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/fitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fitter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/forward_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    forward_modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/mapmaking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mapmaking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/presets_by_source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    presets_by_source
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    utils
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-witch-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      The WITCH Library
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-fitterpy-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      The fitter.py Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#style-and-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Style and Standards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Style and Standards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="witch-where-is-that-cluster-hiding">WITCH (WHERE IS THAT CLUSTER HIDING)</h1>
+<p>This repository contains tools for modeling and fitting SZ data of galaxy clusters.
+While this code was originally written for <a href="https://greenbankobservatory.org/science/gbt-observers/mustang-2/">MUSTANG-2</a> it is largely generic enough to work with data for other telescopes.</p>
+<h2 id="the-witch-library">The <code>WITCH</code> Library</h2>
+<p>The core of this repository is the <code>WITCH</code> library.
+While the name contains <code>minkasi</code> it does not actually require the <code>minkasi</code> mapmaker to be used;
+rather, it produces models of galaxy clusters and their gradients in a format that can be consumed by <code>minkasi</code>'s fitting code.</p>
+<p>The core concept of <code>WITCH</code> is to model the cluster as a 3D pressure profile and then apply modifications to that profile to represent substructure.
+For example, a cavity can be modeled as a multiplicative suppression of the pressure within a certain region.
+The profile is then integrated along the line of sight to produce a signal like we would observe via the SZ effect.
+To produce gradients of the clusters and JIT expensive computations we employ <a href="https://github.com/google/jax"><code>jax</code></a>.</p>
+<p>This framework makes it very easy to add new types of models, see the <a href="#contributing">Contributing</a> section for more.</p>
+<h2 id="the-fitterpy-script">The <code>fitter.py</code> Script</h2>
+<p>The other main part of this repository is the <code>fitter.py</code> script.
+It is generically a script to perform fit models and make maps using <a href="https://github.com/sievers/minkasi"><code>minkasi</code></a>,
+but there are a two key points that make it nice to use:</p>
+<ol>
+<li>A flexible configuration system that allows the user to control mapmaking and fitting parameters, model specification, IO, etc. via yaml files.</li>
+<li>First class support for models from the <code>WITCH</code> library.</li>
+</ol>
+<p>For the most part the config files are easy to make by using one of the files in the <code>configs</code> folder as a base.
+However there are some subtleties and advanced configurations that will eventually get documented properly.</p>
+<h2 id="installation">Installation</h2>
+<p>To install the <code>WITCH</code> library first clone this repository and from within it run:</p>
+<pre><code>pip install .
+</code></pre>
+<p>Note that this will only install <code>WITCH</code> and its dependencies,
+to also install dependencies for <code>fitter.py</code> do:</p>
+<pre><code>pip install .[fitter]
+</code></pre>
+<p>If you are going to be actively working on the <code>WITCH</code> library you probably want to include the <code>-e</code> flag.</p>
+<p>All the dependencies should be installed by <code>pip</code> with the one exception being <code>minkasi</code> itself (only needed for <code>fitter.py</code>).
+Instructions on installing <code>minkasi</code> can be found <a href="https://github.com/sievers/minkasi#installation">here</a>.</p>
+<h2 id="contributing">Contributing</h2>
+<p>All are welcome to contribute to this repository, be it code or config files.
+In general contributions other than minor changes should follow the branch/fork -&gt; PR -&gt; merge workflow.
+If you are going to contribute regularly, contact one of us to get push access to the repository.</p>
+<h3 id="style-and-standards">Style and Standards</h3>
+<p>In general contributions should be <a href="https://peps.python.org/pep-0008/">PEP8</a> with commits in the <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a> format.
+This library follows <a href="https://semver.org/">semantic versioning</a>, so changes that bump the version should do so by editing <code>pyproject.toml</code>.</p>
+<p>In order to make following these rules easier this repository is setup to work with <a href="https://commitizen-tools.github.io/commitizen/">commitizen</a> and <a href="https://pre-commit.com/">pre-commit</a>.
+It is recommended that you make use of these tools to save time.</p>
+<h4 id="getting-started">Getting Started</h4>
+<ol>
+<li>Install both tools with <code>pip install commitizen pre-commit</code>.</li>
+<li><code>cd</code> into the <code>WITCH</code> repository it you aren't already in it.</li>
+<li>(Optional) Setup <code>commitizen</code> to automatically run when you run <code>git commit</code>. Follow instruction <a href="https://commitizen-tools.github.io/commitizen/tutorials/auto_prepare_commit_message/">here</a>.</li>
+<li>Make sure the <code>pre-commit</code> hook is installed by running <code>pre-commit install</code>.</li>
+</ol>
+<h4 id="example-workflow">Example Workflow</h4>
+<ol>
+<li>Make a branch for the edits you want to make.</li>
+<li>Code.</li>
+<li>Commit your code with a <a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">conventional commit message</a>.</li>
+<li><code>cz c</code> gives you a wizard that will do this for you, if you followed Step 3 above then <code>git commit</code> will also do this (but not <code>git commit -m</code>).</li>
+<li>Repeat step 3 and 4 until the goal if your branch has been completed.</li>
+<li>Put in a PR.</li>
+<li>Once the PR is merged the repo version and tag will update <a href="https://commitizen-tools.github.io/commitizen/tutorials/github_actions/">automatically</a>.</li>
+</ol>
+<h3 id="adding-new-models">Adding New Models</h3>
+<p>When adding new models to <code>WITCH</code>, be they profiles or substructure, there are some changes that need to be made to <code>core.py</code> to expose them properly.</p>
+<ol>
+<li>A variable <code>N_PAR_{MODEL}</code> needs to be defined with the number of fittable parameters in the model. Do not include parameters like the grid here.</li>
+<li>A parameter <code>n_{model}</code> needs to be added to the functions <code>helper</code>, <code>model</code>, and <code>model_grad</code>. Remember to update the <code>static_argnums</code> for <code>model</code> and <code>model_grad</code>. In <code>helper</code> set a default value of <code>0</code> for backwards compatibility.</li>
+<li>A block grabbing the parameters for the model needs to be added to <code>model</code>. This can largely be copied from the other models, just remember to swap out the relevant variables.</li>
+<li>A block applying model needs to be added to <code>model</code>. Pressure profiles should come first then substructure. This can largely be copied from the other models, just remember to swap out the relevant variables.</li>
+</ol>
+<p>Adding a new model also (usually) means you should bump the minor version in the version number.</p>
+<h3 id="profiling-code">Profiling Code</h3>
+<p>The script <code>scratch/profile.py</code> uses <code>jax</code> profiling tools to benchmark the library.
+It outputs a trace file understandable <a href="https://ui.perfetto.dev/">perfetto</a> as well as a text file containing
+metadata about the software and hardware used while profiling.
+To use non default settings use <code>python profile.py --help</code> but in most cases the default settings are fine.</p>
+<p>The profiling script has some additional dependencies.
+To install them run:</p>
+<pre><code>pip install .[profile]
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
