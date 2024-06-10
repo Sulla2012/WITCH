@@ -700,7 +700,7 @@ so we merge the original into the newly loaded one.</p>
 <span class="sd">    We only want to take things from base that are not in the original config</span>
 <span class="sd">    so we merge the original into the newly loaded one.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cfg_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cfg_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="n">new_cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">deep_merge</span><span class="p">(</span><span class="n">new_cfg</span><span class="p">,</span> <span class="n">start_cfg</span><span class="p">)</span>
     <span class="k">if</span> <span class="s2">&quot;base&quot;</span> <span class="ow">in</span> <span class="n">new_cfg</span><span class="p">:</span>
