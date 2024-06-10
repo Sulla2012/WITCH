@@ -1,0 +1,2244 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mustang-sz.github.io/WITCH/3.3.0/reference/utils/">
+      
+      
+        <link rel="prev" href="../structure/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>utils - WITCH</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#witch.utils" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="WITCH" class="md-header__button md-logo" aria-label="WITCH" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WITCH
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              utils
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WITCH" class="md-nav__button md-logo" aria-label="WITCH" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    WITCH
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bowling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    bowling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    core
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fitter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fitter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forward_modeling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    forward_modeling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapmaking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mapmaking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../presets_by_source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    presets_by_source
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    utils
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    utils
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      utils
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.K_CMB2K_RJ" class="md-nav__link">
+    <span class="md-ellipsis">
+      K_CMB2K_RJ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.beam_double_gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      beam_double_gauss
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.bilinear_interp" class="md-nav__link">
+    <span class="md-ellipsis">
+      bilinear_interp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.fft_conv" class="md-nav__link">
+    <span class="md-ellipsis">
+      fft_conv
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.get_da" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_da
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.get_hz" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_hz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.get_nz" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_nz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.make_grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      make_grid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.make_grid_from_skymap" class="md-nav__link">
+    <span class="md-ellipsis">
+      make_grid_from_skymap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.tod_hi_pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      tod_hi_pass
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.tod_to_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      tod_to_index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.transform_grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      transform_grid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.y2K_CMB" class="md-nav__link">
+    <span class="md-ellipsis">
+      y2K_CMB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.y2K_RJ" class="md-nav__link">
+    <span class="md-ellipsis">
+      y2K_RJ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      utils
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.K_CMB2K_RJ" class="md-nav__link">
+    <span class="md-ellipsis">
+      K_CMB2K_RJ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.beam_double_gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      beam_double_gauss
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.bilinear_interp" class="md-nav__link">
+    <span class="md-ellipsis">
+      bilinear_interp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.fft_conv" class="md-nav__link">
+    <span class="md-ellipsis">
+      fft_conv
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.get_da" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_da
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.get_hz" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_hz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.get_nz" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_nz
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.make_grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      make_grid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.make_grid_from_skymap" class="md-nav__link">
+    <span class="md-ellipsis">
+      make_grid_from_skymap
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.tod_hi_pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      tod_hi_pass
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.tod_to_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      tod_to_index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.transform_grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      transform_grid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.y2K_CMB" class="md-nav__link">
+    <span class="md-ellipsis">
+      y2K_CMB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#witch.utils.y2K_RJ" class="md-nav__link">
+    <span class="md-ellipsis">
+      y2K_RJ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>utils</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="witch.utils"></a>
+    <div class="doc doc-contents first">
+
+      <p>A set of utility functions and constants used for unit conversions
+and adding generic structure common to multiple models.</p>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.K_CMB2K_RJ" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">K_CMB2K_RJ</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Convert from K_CMB to K_RJ.</p>
+<p>Arguments:</p>
+<pre><code>freq: The observing frequency in Hz.
+</code></pre>
+<p>Returns:</p>
+<pre><code>K_CMB2K_RJ: Conversion factor from K_CMB to K_RJ.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
+<span class="k">def</span> <span class="nf">K_CMB2K_RJ</span><span class="p">(</span><span class="n">freq</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert from K_CMB to K_RJ.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        freq: The observing frequency in Hz.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        K_CMB2K_RJ: Conversion factor from K_CMB to K_RJ.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">freq</span> <span class="o">*</span> <span class="n">h</span> <span class="o">/</span> <span class="n">kb</span> <span class="o">/</span> <span class="n">Tcmb</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">expm1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.beam_double_gauss" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">beam_double_gauss</span><span class="p">(</span><span class="n">dr</span><span class="p">,</span> <span class="n">fwhm1</span><span class="o">=</span><span class="mf">9.735</span><span class="p">,</span> <span class="n">amp1</span><span class="o">=</span><span class="mf">0.9808</span><span class="p">,</span> <span class="n">fwhm2</span><span class="o">=</span><span class="mf">32.627</span><span class="p">,</span> <span class="n">amp2</span><span class="o">=</span><span class="mf">0.0192</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Helper function to generate a double gaussian beam.</p>
+<p>Arguments:</p>
+<pre><code>dr: Pixel size.
+
+fwhm1: Full width half max of the primary gaussian.
+
+amp1: Amplitude of the primary gaussian.
+
+fwhm2: Full width half max of the secondairy gaussian.
+
+amp2: Amplitude of the secondairy gaussian.
+</code></pre>
+<p>Returns:</p>
+<pre><code>beam: Double gaussian beam.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">beam_double_gauss</span><span class="p">(</span><span class="n">dr</span><span class="p">,</span> <span class="n">fwhm1</span><span class="o">=</span><span class="mf">9.735</span><span class="p">,</span> <span class="n">amp1</span><span class="o">=</span><span class="mf">0.9808</span><span class="p">,</span> <span class="n">fwhm2</span><span class="o">=</span><span class="mf">32.627</span><span class="p">,</span> <span class="n">amp2</span><span class="o">=</span><span class="mf">0.0192</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to generate a double gaussian beam.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        dr: Pixel size.</span>
+
+<span class="sd">        fwhm1: Full width half max of the primary gaussian.</span>
+
+<span class="sd">        amp1: Amplitude of the primary gaussian.</span>
+
+<span class="sd">        fwhm2: Full width half max of the secondairy gaussian.</span>
+
+<span class="sd">        amp2: Amplitude of the secondairy gaussian.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        beam: Double gaussian beam.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">fwhm1</span> <span class="o">//</span> <span class="p">(</span><span class="n">dr</span><span class="p">),</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">fwhm1</span> <span class="o">//</span> <span class="p">(</span><span class="n">dr</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">dr</span><span class="p">)</span>
+    <span class="n">beam_xx</span><span class="p">,</span> <span class="n">beam_yy</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">beam_rr</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">beam_xx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">beam_yy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">beam</span> <span class="o">=</span> <span class="n">amp1</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">beam_rr</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">fwhm1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">amp2</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+        <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">beam_rr</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">fwhm2</span><span class="o">**</span><span class="mi">2</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">beam</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.bilinear_interp" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">bilinear_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>JAX implementation of bilinear interpolation.
+Out of bounds values are set to 0.
+Using the repeated linear interpolation method here,
+see https://en.wikipedia.org/wiki/Bilinear_interpolation#Repeated_linear_interpolation.</p>
+<p>Arguments:</p>
+<pre><code>x: X values to return interpolated values at.
+
+y: Y values to return interpolated values at.
+
+xp: X values to interpolate with, should be 1D.
+    Assumed to be sorted.
+
+yp: Y values to interpolate with, should be 1D.
+    Assumed to be sorted.
+
+fp: Functon values at (xp, yp), should have shape (len(xp), len(yp)).
+    Note that if you are using meshgrid, we assume 'ij' indexing.
+</code></pre>
+<p>Return:</p>
+<pre><code>f: The interpolated values
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">bilinear_interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">yp</span><span class="p">,</span> <span class="n">fp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    JAX implementation of bilinear interpolation.</span>
+<span class="sd">    Out of bounds values are set to 0.</span>
+<span class="sd">    Using the repeated linear interpolation method here,</span>
+<span class="sd">    see https://en.wikipedia.org/wiki/Bilinear_interpolation#Repeated_linear_interpolation.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        x: X values to return interpolated values at.</span>
+
+<span class="sd">        y: Y values to return interpolated values at.</span>
+
+<span class="sd">        xp: X values to interpolate with, should be 1D.</span>
+<span class="sd">            Assumed to be sorted.</span>
+
+<span class="sd">        yp: Y values to interpolate with, should be 1D.</span>
+<span class="sd">            Assumed to be sorted.</span>
+
+<span class="sd">        fp: Functon values at (xp, yp), should have shape (len(xp), len(yp)).</span>
+<span class="sd">            Note that if you are using meshgrid, we assume &#39;ij&#39; indexing.</span>
+
+<span class="sd">    Return:</span>
+
+<span class="sd">        f: The interpolated values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">xp</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;xp must be 1D&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">yp</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;yp must be 1D&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">fp</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">xp</span><span class="o">.</span><span class="n">shape</span> <span class="o">+</span> <span class="n">yp</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Incompatible shapes for fp, xp, yp: </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">fp</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+            <span class="n">xp</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+            <span class="n">yp</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Figure out bounds and mapping</span>
+    <span class="c1"># This breaks if xp, yp is not sorted</span>
+    <span class="n">ix</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">iy</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">yp</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">yp</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">q_11</span> <span class="o">=</span> <span class="n">fp</span><span class="p">[</span><span class="n">ix</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">iy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">q_21</span> <span class="o">=</span> <span class="n">fp</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">q_12</span> <span class="o">=</span> <span class="n">fp</span><span class="p">[</span><span class="n">ix</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">iy</span><span class="p">]</span>
+    <span class="n">q_22</span> <span class="o">=</span> <span class="n">fp</span><span class="p">[</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">]</span>
+
+    <span class="c1"># Interpolate in x to start</span>
+    <span class="n">denom_x</span> <span class="o">=</span> <span class="n">xp</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">-</span> <span class="n">xp</span><span class="p">[</span><span class="n">ix</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">dx_1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">xp</span><span class="p">[</span><span class="n">ix</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">dx_2</span> <span class="o">=</span> <span class="n">xp</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span>
+    <span class="n">f_xy1</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx_2</span> <span class="o">*</span> <span class="n">q_11</span> <span class="o">+</span> <span class="n">dx_1</span> <span class="o">*</span> <span class="n">q_21</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom_x</span>
+    <span class="n">f_xy2</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx_2</span> <span class="o">*</span> <span class="n">q_12</span> <span class="o">+</span> <span class="n">dx_1</span> <span class="o">*</span> <span class="n">q_22</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom_x</span>
+
+    <span class="c1"># Now do y as well</span>
+    <span class="n">denom_y</span> <span class="o">=</span> <span class="n">yp</span><span class="p">[</span><span class="n">iy</span><span class="p">]</span> <span class="o">-</span> <span class="n">yp</span><span class="p">[</span><span class="n">iy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">dy_1</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">yp</span><span class="p">[</span><span class="n">iy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">dy_2</span> <span class="o">=</span> <span class="n">yp</span><span class="p">[</span><span class="n">iy</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">dy_2</span> <span class="o">*</span> <span class="n">f_xy1</span> <span class="o">+</span> <span class="n">dy_1</span> <span class="o">*</span> <span class="n">f_xy2</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom_y</span>
+
+    <span class="c1"># Zero out the out of bounds values</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">xp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">xp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">yp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">yp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">f</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.fft_conv" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">fft_conv</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Perform a convolution using FFTs for speed.</p>
+<p>Arguments:</p>
+<pre><code>image: Data to be convolved
+
+kernel: Convolution kernel
+</code></pre>
+<p>Returns:</p>
+<pre><code>convolved_map: Image convolved with kernel.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">fft_conv</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform a convolution using FFTs for speed.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        image: Data to be convolved</span>
+
+<span class="sd">        kernel: Convolution kernel</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        convolved_map: Image convolved with kernel.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Fmap</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+    <span class="n">Fkernel</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">kernel</span><span class="p">))</span>
+    <span class="n">convolved_map</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">Fmap</span> <span class="o">*</span> <span class="n">Fkernel</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">convolved_map</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.get_da" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_da</span><span class="p">(</span><span class="n">z</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get factor to convert from arcseconds to MPc.</p>
+<p>Arguments:</p>
+<pre><code>z: The redshift at which to compute the factor.
+</code></pre>
+<p>Returns:</p>
+<pre><code>da: Conversion factor from arcseconds to MPc
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_da</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get factor to convert from arcseconds to MPc.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        z: The redshift at which to compute the factor.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        da: Conversion factor from arcseconds to MPc</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dzline</span><span class="p">,</span> <span class="n">daline</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.get_hz" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_hz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get h(z).</p>
+<p>Arguments:</p>
+<pre><code>z: The redshift at which to compute the factor.
+</code></pre>
+<p>Returns:</p>
+<pre><code>hz: h at the given z.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_hz</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get h(z).</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        z: The redshift at which to compute the factor.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        hz: h at the given z.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dzline</span><span class="p">,</span> <span class="n">hzline</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.get_nz" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get n(z).</p>
+<p>Arguments:</p>
+<pre><code>z: The redshift at which to compute the factor.
+</code></pre>
+<p>Returns:</p>
+<pre><code>nz: n at the given z.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_nz</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get n(z).</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        z: The redshift at which to compute the factor.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        nz: n at the given z.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dzline</span><span class="p">,</span> <span class="n">nzline</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.make_grid" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">make_grid</span><span class="p">(</span><span class="n">r_map</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Make coordinate grids to build models in.
+All grids are sparse and are int(2*r_map / dr) in each dimension.</p>
+<p>Arguments:</p>
+<pre><code>r_map: Size of grid radially.
+
+dx: Grid resolution in x, should be in same units as r_map.
+
+dy: Grid resolution in y, should be in same units as r_map.
+    If None then dy is set to dx.
+
+dz: Grid resolution in z, should be in same units as r_map.
+    If None then dz is set to dx.
+
+x0: Origin of grid in RA, assumed to be in same units as r_map.
+
+y0: Origin of grid in Dec, assumed to be in same units as r_map.
+</code></pre>
+<p>Returns:</p>
+<pre><code>x: Grid of x coordinates in same units as r_map.
+
+y: Grid of y coordinates in same units as r_map
+
+z: Grid of z coordinates in same units as r_map
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">make_grid</span><span class="p">(</span><span class="n">r_map</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make coordinate grids to build models in.</span>
+<span class="sd">    All grids are sparse and are int(2*r_map / dr) in each dimension.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        r_map: Size of grid radially.</span>
+
+<span class="sd">        dx: Grid resolution in x, should be in same units as r_map.</span>
+
+<span class="sd">        dy: Grid resolution in y, should be in same units as r_map.</span>
+<span class="sd">            If None then dy is set to dx.</span>
+
+<span class="sd">        dz: Grid resolution in z, should be in same units as r_map.</span>
+<span class="sd">            If None then dz is set to dx.</span>
+
+<span class="sd">        x0: Origin of grid in RA, assumed to be in same units as r_map.</span>
+
+<span class="sd">        y0: Origin of grid in Dec, assumed to be in same units as r_map.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        x: Grid of x coordinates in same units as r_map.</span>
+
+<span class="sd">        y: Grid of y coordinates in same units as r_map</span>
+
+<span class="sd">        z: Grid of z coordinates in same units as r_map</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">dy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">dx</span>
+    <span class="k">if</span> <span class="n">dz</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dz</span> <span class="o">=</span> <span class="n">dx</span>
+
+    <span class="c1"># Make grid with resolution dr and size r_map</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">r_map</span><span class="p">,</span> <span class="n">r_map</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">r_map</span> <span class="o">/</span> <span class="n">dx</span><span class="p">))</span>
+        <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y0</span> <span class="o">/</span> <span class="n">rad_to_arcsec</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">x0</span>
+    <span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">r_map</span><span class="p">,</span> <span class="n">r_map</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">r_map</span> <span class="o">/</span> <span class="n">dy</span><span class="p">))</span> <span class="o">+</span> <span class="n">y0</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">r_map</span><span class="p">,</span> <span class="n">r_map</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">r_map</span> <span class="o">/</span> <span class="n">dz</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.make_grid_from_skymap" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">make_grid_from_skymap</span><span class="p">(</span><span class="n">skymap</span><span class="p">,</span> <span class="n">z_map</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Make coordinate grids to build models in.
+All grids are sparse and are int(2*r_map / dr) in each dimension.</p>
+<p>Arguments:</p>
+<pre><code>z_map: Size of grid along LOS, in radians.
+
+dz: Grid resolution along LOS, in radians.
+
+x0: Map x center in radians. If None, grid center is used.
+
+y0: Map y center in radians. If None, grid center is used.
+</code></pre>
+<p>Returns:</p>
+<pre><code>x: Grid of x coordinates in radians.
+
+y: Grid of y coordinates in radians.
+
+z: Grid of z coordinates in radians.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">make_grid_from_skymap</span><span class="p">(</span><span class="n">skymap</span><span class="p">,</span> <span class="n">z_map</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make coordinate grids to build models in.</span>
+<span class="sd">    All grids are sparse and are int(2*r_map / dr) in each dimension.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        z_map: Size of grid along LOS, in radians.</span>
+
+<span class="sd">        dz: Grid resolution along LOS, in radians.</span>
+
+<span class="sd">        x0: Map x center in radians. If None, grid center is used.</span>
+
+<span class="sd">        y0: Map y center in radians. If None, grid center is used.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        x: Grid of x coordinates in radians.</span>
+
+<span class="sd">        y: Grid of y coordinates in radians.</span>
+
+<span class="sd">        z: Grid of z coordinates in radians.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># make grid</span>
+    <span class="n">_x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">skymap</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">_y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">skymap</span><span class="o">.</span><span class="n">ny</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">_z</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">z_map</span><span class="p">,</span> <span class="n">z_map</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">z_map</span> <span class="o">/</span> <span class="n">dz</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">_z</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Pad so we don&#39;t need to broadcast</span>
+    <span class="n">x_flat</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">y_flat</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">len_diff</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_flat</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_flat</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">len_diff</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">y_flat</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">y_flat</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">len_diff</span><span class="p">),</span> <span class="s2">&quot;edge&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">len_diff</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x_flat</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x_flat</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">len_diff</span><span class="p">)),</span> <span class="s2">&quot;edge&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Convert x and y to ra/dec</span>
+    <span class="n">ra_dec</span> <span class="o">=</span> <span class="n">skymap</span><span class="o">.</span><span class="n">wcs</span><span class="o">.</span><span class="n">wcs_pix2world</span><span class="p">(</span>
+        <span class="n">jnp</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x_flat</span><span class="p">,</span> <span class="n">y_flat</span><span class="p">)),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ra_dec_order</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">ra_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ra_dec</span><span class="p">)</span>
+    <span class="n">ra</span> <span class="o">=</span> <span class="n">ra_dec</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="n">ra_dec</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Remove padding</span>
+    <span class="k">if</span> <span class="n">len_diff</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">dec</span> <span class="o">=</span> <span class="n">dec</span><span class="p">[:</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">len_diff</span><span class="p">)]</span>
+    <span class="k">elif</span> <span class="n">len_diff</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">ra</span> <span class="o">=</span> <span class="n">ra</span><span class="p">[:</span><span class="n">len_diff</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">x0</span><span class="p">:</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="p">(</span><span class="n">skymap</span><span class="o">.</span><span class="n">lims</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">skymap</span><span class="o">.</span><span class="n">lims</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">y0</span><span class="p">:</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="p">(</span><span class="n">skymap</span><span class="o">.</span><span class="n">lims</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">skymap</span><span class="o">.</span><span class="n">lims</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="n">ra</span> <span class="o">-=</span> <span class="n">x0</span>
+    <span class="n">dec</span> <span class="o">-=</span> <span class="n">y0</span>
+
+    <span class="c1"># Sparse indexing to save mem</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">at</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ra</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.tod_hi_pass" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">tod_hi_pass</span><span class="p">(</span><span class="n">tod</span><span class="p">,</span> <span class="n">N_filt</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>High pass a tod with a tophat</p>
+<p>Arguments:</p>
+<pre><code>tod: TOD to high pass
+
+N_filt: N_filt of tophat
+</code></pre>
+<p>Returns:</p>
+<pre><code>tod_filtered: Filtered TOD
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+<span class="k">def</span> <span class="nf">tod_hi_pass</span><span class="p">(</span><span class="n">tod</span><span class="p">,</span> <span class="n">N_filt</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    High pass a tod with a tophat</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        tod: TOD to high pass</span>
+
+<span class="sd">        N_filt: N_filt of tophat</span>
+
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        tod_filtered: Filtered TOD</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">tod</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">index_update</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">jax</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">N_filt</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1">## apply the filter in fourier space</span>
+    <span class="n">Ftod</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">tod</span><span class="p">)</span>
+    <span class="n">Ftod_filtered</span> <span class="o">=</span> <span class="n">Ftod</span> <span class="o">*</span> <span class="n">mask</span>
+    <span class="n">tod_filtered</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">Ftod_filtered</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+    <span class="k">return</span> <span class="n">tod_filtered</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.tod_to_index" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">tod_to_index</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">conv_factor</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Convert RA/Dec TODs to index space.</p>
+<p>Arguments:</p>
+<pre><code>xi: RA TOD
+
+yi: Dec TOD
+
+x0: RA at center of model. Nominally the cluster center.
+
+y0: Dec at center of model. Nominally the cluster center.
+
+grid: The grid to index on.
+
+conv_factor: Conversion factor to put RA and Dec in same units as r_map.
+             Nominally (da * 180 * 3600) / pi
+</code></pre>
+<p>Returns:</p>
+<pre><code>idx: The RA TOD in index space
+
+idy: The Dec TOD in index space.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">tod_to_index</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">conv_factor</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert RA/Dec TODs to index space.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        xi: RA TOD</span>
+
+<span class="sd">        yi: Dec TOD</span>
+
+<span class="sd">        x0: RA at center of model. Nominally the cluster center.</span>
+
+<span class="sd">        y0: Dec at center of model. Nominally the cluster center.</span>
+
+<span class="sd">        grid: The grid to index on.</span>
+
+<span class="sd">        conv_factor: Conversion factor to put RA and Dec in same units as r_map.</span>
+<span class="sd">                     Nominally (da * 180 * 3600) / pi</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        idx: The RA TOD in index space</span>
+
+<span class="sd">        idy: The Dec TOD in index space.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">xi</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">yi</span><span class="p">)</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">yi</span> <span class="o">-</span> <span class="n">y0</span>
+
+    <span class="n">dx</span> <span class="o">*=</span> <span class="n">conv_factor</span>
+    <span class="n">dy</span> <span class="o">*=</span> <span class="n">conv_factor</span>
+
+    <span class="c1"># Assuming sparse indexing here</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+    <span class="n">idy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">idy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">idy</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Ensure out of bounds for stuff not in grid</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">idx</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">idx</span><span class="p">)</span>
+    <span class="n">idy</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">idy</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">idy</span> <span class="o">&gt;=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">idy</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">idx</span><span class="p">,</span> <span class="n">idy</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.transform_grid" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">transform_grid</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">r_1</span><span class="p">,</span> <span class="n">r_2</span><span class="p">,</span> <span class="n">r_3</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">xyz</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Shift, rotate, and apply ellipticity to coordinate grid.</p>
+<p>Arguments:</p>
+<pre><code>dx: RA of cluster center relative to grid origin
+
+dy: Dec of cluster center relative to grid origin
+
+dz: Line of sight offset of cluster center relative to grid origin
+
+r_1: Amount to scale along x-axis
+
+r_2: Amount to scale along y-axis
+
+r_3: Amount to scale along z-axis
+
+theta: Angle to rotate in xy-plane
+
+xyz: Coordinte grid to transform
+</code></pre>
+<p>Returns:</p>
+<pre><code>xyz: Transformed coordinate grid
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">transform_grid</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">r_1</span><span class="p">,</span> <span class="n">r_2</span><span class="p">,</span> <span class="n">r_3</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">xyz</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shift, rotate, and apply ellipticity to coordinate grid.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        dx: RA of cluster center relative to grid origin</span>
+
+<span class="sd">        dy: Dec of cluster center relative to grid origin</span>
+
+<span class="sd">        dz: Line of sight offset of cluster center relative to grid origin</span>
+
+<span class="sd">        r_1: Amount to scale along x-axis</span>
+
+<span class="sd">        r_2: Amount to scale along y-axis</span>
+
+<span class="sd">        r_3: Amount to scale along z-axis</span>
+
+<span class="sd">        theta: Angle to rotate in xy-plane</span>
+
+<span class="sd">        xyz: Coordinte grid to transform</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        xyz: Transformed coordinate grid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get origin</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="c1"># Shift origin</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y0</span> <span class="o">/</span> <span class="n">rad_to_arcsec</span><span class="p">)))</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">y0</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span> <span class="o">/</span> <span class="n">rad_to_arcsec</span>
+    <span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">y0</span> <span class="o">+</span> <span class="n">dy</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">dz</span>
+
+    <span class="c1"># Rotate</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">yy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="c1"># Apply ellipticity</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">xx</span> <span class="o">/</span> <span class="n">r_1</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">yy</span> <span class="o">/</span> <span class="n">r_2</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">/</span> <span class="n">r_3</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.y2K_CMB" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">y2K_CMB</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">Te</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Convert from compton y to K_CMB.</p>
+<p>Arguments:</p>
+<pre><code>freq: The observing frequency in Hz.
+
+Te: Electron temperature
+</code></pre>
+<p>Returns:</p>
+<pre><code>y2K_CMB: Conversion factor from compton y to K_CMB.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">y2K_CMB</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">Te</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert from compton y to K_CMB.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        freq: The observing frequency in Hz.</span>
+
+<span class="sd">        Te: Electron temperature</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        y2K_CMB: Conversion factor from compton y to K_CMB.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">freq</span> <span class="o">*</span> <span class="n">h</span> <span class="o">/</span> <span class="n">kb</span> <span class="o">/</span> <span class="n">Tcmb</span>
+    <span class="n">xt</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+    <span class="c1"># fmt:off</span>
+    <span class="n">Y0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.0</span> <span class="o">+</span> <span class="n">xt</span>
+    <span class="n">Y1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">10.0</span>
+        <span class="o">+</span> <span class="p">((</span><span class="mf">47.0</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mf">42.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">7.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+        <span class="o">+</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mf">21.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">7.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">Y2</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mf">15.0</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="p">((</span><span class="mf">1023.0</span> <span class="o">/</span> <span class="mf">8.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">868.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">329.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">44.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">11.0</span> <span class="o">/</span> <span class="mf">30.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+        <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">434.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">658.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">242.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">143.0</span> <span class="o">/</span> <span class="mf">30.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+        <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mf">44.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">187.0</span> <span class="o">/</span> <span class="mf">60.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">st</span> <span class="o">*</span> <span class="n">st</span><span class="p">))</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span>
+    <span class="p">)</span>
+    <span class="n">Y3</span> <span class="o">=</span> <span class="p">((</span><span class="mf">15.0</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="p">((</span><span class="mf">2505.0</span> <span class="o">/</span> <span class="mf">8.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">7098.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">14253.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">18594.0</span> <span class="o">/</span> <span class="mf">35.0</span><span class="p">)</span> 
+         <span class="o">+</span> <span class="p">((</span><span class="mf">12059.0</span> <span class="o">/</span> <span class="mf">140.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">128.0</span> <span class="o">/</span> <span class="mf">21.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">16.0</span> <span class="o">/</span> <span class="mf">105.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+        <span class="o">+</span> <span class="p">(((</span><span class="o">-</span><span class="mf">7098.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">14253.0</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">102267.0</span> <span class="o">/</span> <span class="mf">35.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">156767.0</span> <span class="o">/</span> <span class="mf">140.0</span><span class="p">)</span>
+         <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">1216.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">64.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span>
+         <span class="o">+</span> <span class="p">(((</span><span class="o">-</span><span class="mf">18594.0</span> <span class="o">/</span> <span class="mf">35.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">205003.0</span> <span class="o">/</span> <span class="mf">280.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">1920.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1024.0</span> <span class="o">/</span> <span class="mf">35.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span>
+          <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">544.0</span> <span class="o">/</span> <span class="mf">21.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">992.0</span> <span class="o">/</span> <span class="mf">105.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span><span class="p">)</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span><span class="p">)</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span>
+    <span class="p">)</span>
+    <span class="n">Y4</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mf">135.0</span> <span class="o">/</span> <span class="mf">32.0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="p">((</span><span class="mf">30375.0</span> <span class="o">/</span> <span class="mf">128.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">62391.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">614727.0</span> <span class="o">/</span> <span class="mf">40.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">124389.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">355703.0</span> <span class="o">/</span> <span class="mf">80.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">16568.0</span> <span class="o">/</span> <span class="mf">21.0</span><span class="p">)</span>
+         <span class="o">+</span> <span class="p">((</span><span class="mf">7516.0</span> <span class="o">/</span> <span class="mf">105.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">22.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">11.0</span> <span class="o">/</span> <span class="mf">210.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+        <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">62391.0</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">614727.0</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">1368279.0</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">4624139.0</span> <span class="o">/</span> <span class="mf">80.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">157396.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">30064.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span>
+         <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">2717.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">2761.0</span> <span class="o">/</span> <span class="mf">210.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+         <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">124389.0</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>
+          <span class="o">+</span> <span class="p">((</span><span class="mf">6046951.0</span> <span class="o">/</span> <span class="mf">160.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">248520.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">481024.0</span> <span class="o">/</span> <span class="mf">35.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">15972.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">18689.0</span> <span class="o">/</span> <span class="mf">140.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+          <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">70414.0</span> <span class="o">/</span> <span class="mf">21.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="mf">465992.0</span> <span class="o">/</span> <span class="mf">105.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">11792.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">19778.0</span> <span class="o">/</span> <span class="mf">105.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span>
+           <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mf">682.0</span> <span class="o">/</span> <span class="mf">7.0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mf">7601.0</span> <span class="o">/</span> <span class="mf">210.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">xt</span><span class="p">)</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span><span class="p">)</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span><span class="p">)</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span><span class="p">)</span> <span class="o">*</span> <span class="n">st</span> <span class="o">*</span> <span class="n">st</span>
+    <span class="p">)</span>
+    <span class="c1"># fmt:on</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">Y0</span> <span class="o">+</span> <span class="p">(</span><span class="n">Te</span> <span class="o">/</span> <span class="n">me</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="n">Y1</span> <span class="o">+</span> <span class="p">(</span><span class="n">Te</span> <span class="o">/</span> <span class="n">me</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Te</span> <span class="o">/</span> <span class="n">me</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">Y3</span> <span class="o">+</span> <span class="p">(</span><span class="n">Te</span> <span class="o">/</span> <span class="n">me</span><span class="p">)</span> <span class="o">*</span> <span class="n">Y4</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">Tcmb</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="witch.utils.y2K_RJ" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">y2K_RJ</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">Te</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Convert from compton y to K_RJ.</p>
+<p>Arguments:</p>
+<pre><code>freq: The observing frequency in Hz.
+
+Te: Electron temperature
+</code></pre>
+<p>Returns:</p>
+<pre><code>y2K_RJ: Conversion factor from compton y to K_RJ.
+</code></pre>
+
+            <details class="quote">
+              <summary>Source code in <code>witch/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">y2K_RJ</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">Te</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert from compton y to K_RJ.</span>
+
+<span class="sd">    Arguments:</span>
+
+<span class="sd">        freq: The observing frequency in Hz.</span>
+
+<span class="sd">        Te: Electron temperature</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        y2K_RJ: Conversion factor from compton y to K_RJ.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">y2K_CMB</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">Te</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">K_CMB2K_RJ</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
