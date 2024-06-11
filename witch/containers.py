@@ -11,6 +11,7 @@ import dill
 import jax
 import jax.numpy as jnp
 import numpy as np
+import scipy.stats
 from minkasi.tods import Tod
 from numpy.typing import NDArray
 from typing_extensions import Self
@@ -26,7 +27,7 @@ class Parameter:
     fit: list[bool]
     val: float
     err: float = 0
-    prior: Optional[tuple[float, float]] = None  # Only flat for now
+    prior: Optional[scipy.stats.rv_continuous] = None
 
     @property
     def fit_ever(self) -> bool:
@@ -362,7 +363,12 @@ class Model:
                     )
                 priors = param.get("priors", None)
                 if priors is not None:
-                    priors = eval(str(priors))
+                    if isinstance(priors, list):
+                        priors = scipy.stats.uniform(
+                            loc=priors[0], scale=priors[1] - priors[0]
+                        )
+                    else:
+                        priors = eval("scipy.stats." + str(priors))
                 parameters.append(Parameter(par_name, fit, val, 0.0, priors))
             structures.append(Structure(name, structure["structure"], parameters))
         name = cfg["model"].get(
