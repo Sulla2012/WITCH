@@ -14,7 +14,7 @@ import minkasi
 import numpy as np
 import yaml
 
-import minkasi_jax.presets_by_source as pbs
+import minkasi.tools.presets_by_source as pbs
 
 from . import core
 from . import mapmaking as mm
